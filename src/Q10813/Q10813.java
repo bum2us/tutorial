@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.util.StringTokenizer;
 
 public class Q10813 {
 
@@ -12,7 +13,33 @@ public class Q10813 {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 		
+		StringTokenizer st = new StringTokenizer(br.readLine());
+		int n = Integer.parseInt(st.nextToken());
+		int m = Integer.parseInt(st.nextToken());
 		
+		if(n < 1 || n > 100 || m < 1 || m > 100) return;
+		
+		int[] arr = new int[n];
+		for(int i = 0; i < n; i ++) {
+			arr[i] = i+1;
+		}
+		int temp;
+		for(int q = 0; q < m; q ++) {
+			st = new StringTokenizer(br.readLine());
+			int i = Integer.parseInt(st.nextToken());
+			int j = Integer.parseInt(st.nextToken());
+			if(i > j || i < 1 || j > n) return;
+			temp = arr[i-1];
+			arr[i-1] = arr[j-1];
+			arr[j-1] = temp;		
+		}
+		
+		for(int i = 0; i < n; i++) {
+			bw.write(arr[i] + " ");
+		}
+		
+		br.close();
+		bw.close();
 	}
 
 }
