@@ -1,4 +1,4 @@
-package 미분류.Q10871;
+package 배열1차원.Q10871;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
